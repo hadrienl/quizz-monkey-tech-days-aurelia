@@ -8,10 +8,16 @@ Install Node and npm. Then, aurelia-cli:
 $ npm install aurelia-cli
 ```
 
-You can now create a new project by typing:
+## Usage
+
+Start the dev environnement with:
 
 ```
-au new
+au run --watch
 ```
 
-and answser all questions as you wish
+You can change environnement with --env flag:
+
+```
+au run --env stage
+```
