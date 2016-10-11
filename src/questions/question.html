@@ -1,0 +1,32 @@
+<template>
+<require
+  from="./question.css"></require>
+<section
+  class="question">
+  <div
+    if.bind="loading">
+    <p>Wait for it…</p>
+  </div>
+  <div
+    if.bind="!loading">
+    <figure>
+      <img
+        src.bind="question.url">
+      <figcaption>${question.attribution}</figcaption>
+    </figure>
+
+    <ul>
+      <li
+        repeat.for="[k, response] of responses">
+        <label
+          click.delegate="respond(k)">
+          <input
+            type="checkbox"
+            checked.bind="response.checked">
+          ${response.label}
+        </label>
+      </li>
+    </ul>
+  </div>
+</section>
+</template>

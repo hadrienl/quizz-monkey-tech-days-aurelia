@@ -23,7 +23,7 @@ export class Home {
       userName: this.userName
     });
     this.quizzService.current = quizz;
-    console.log(quizz);
+    this.router.navigateToRoute('question', { index: 1 });
   }
 
   cancel() {

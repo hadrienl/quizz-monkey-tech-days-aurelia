@@ -1,0 +1,30 @@
+<template>
+<require
+  from="./leaderboard.css"></require>
+<div
+  class="leaderboard-view">
+  <h2>Best players!!</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Score</th>
+        <th>Duration</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        repeat.for="player of leaderboard">
+        <td>${player.userName}</td>
+        <td>${player.score}</td>
+        <td>${player.duration}</td>
+      </tr>
+    </tbody>
+  </table>
+  <p>
+    <a
+      route-href="route: home"
+      click.delegate="reset()">Play again?</a>
+  </p>
+</div>
+</template>
