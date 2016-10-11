@@ -540,94 +540,6 @@ define('api/quizz',['exports', 'aurelia-framework', './api'], function (exports,
     return Quizz;
   }()) || _class);
 });
-define('leaderboard/leaderboard',['exports', 'aurelia-framework', '../api/leaderboard', '../api/quizz', 'aurelia-router'], function (exports, _aureliaFramework, _leaderboard, _quizz, _aureliaRouter) {
-  'use strict';
-
-  Object.defineProperty(exports, "__esModule", {
-    value: true
-  });
-  exports.Leaderboard = undefined;
-
-  function _asyncToGenerator(fn) {
-    return function () {
-      var gen = fn.apply(this, arguments);
-      return new Promise(function (resolve, reject) {
-        function step(key, arg) {
-          try {
-            var info = gen[key](arg);
-            var value = info.value;
-          } catch (error) {
-            reject(error);
-            return;
-          }
-
-          if (info.done) {
-            resolve(value);
-          } else {
-            return Promise.resolve(value).then(function (value) {
-              step("next", value);
-            }, function (err) {
-              step("throw", err);
-            });
-          }
-        }
-
-        return step("next");
-      });
-    };
-  }
-
-  function _classCallCheck(instance, Constructor) {
-    if (!(instance instanceof Constructor)) {
-      throw new TypeError("Cannot call a class as a function");
-    }
-  }
-
-  var _dec, _class;
-
-  var Leaderboard = exports.Leaderboard = (_dec = (0, _aureliaFramework.inject)(_leaderboard.Leaderboard, _quizz.Quizz, _aureliaRouter.Router), _dec(_class = function () {
-    function Leaderboard(leaderboardService, quizz, router) {
-      _classCallCheck(this, Leaderboard);
-
-      this.leaderboardService = leaderboardService;
-      this.quizzService = quizz;
-      this.router = router;
-    }
-
-    Leaderboard.prototype.activate = function () {
-      var _ref = _asyncToGenerator(regeneratorRuntime.mark(function _callee() {
-        return regeneratorRuntime.wrap(function _callee$(_context) {
-          while (1) {
-            switch (_context.prev = _context.next) {
-              case 0:
-                _context.next = 2;
-                return this.leaderboardService.get();
-
-              case 2:
-                this.leaderboard = _context.sent;
-
-              case 3:
-              case 'end':
-                return _context.stop();
-            }
-          }
-        }, _callee, this);
-      }));
-
-      function activate() {
-        return _ref.apply(this, arguments);
-      }
-
-      return activate;
-    }();
-
-    Leaderboard.prototype.reset = function reset() {
-      this.quizzService.current = null;
-    };
-
-    return Leaderboard;
-  }()) || _class);
-});
 define('home/home',['exports', 'aurelia-framework', '../api/quizz', 'aurelia-router'], function (exports, _aureliaFramework, _quizz, _aureliaRouter) {
   'use strict';
 
@@ -733,6 +645,94 @@ define('home/home',['exports', 'aurelia-framework', '../api/quizz', 'aurelia-rou
     };
 
     return Home;
+  }()) || _class);
+});
+define('leaderboard/leaderboard',['exports', 'aurelia-framework', '../api/leaderboard', '../api/quizz', 'aurelia-router'], function (exports, _aureliaFramework, _leaderboard, _quizz, _aureliaRouter) {
+  'use strict';
+
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports.Leaderboard = undefined;
+
+  function _asyncToGenerator(fn) {
+    return function () {
+      var gen = fn.apply(this, arguments);
+      return new Promise(function (resolve, reject) {
+        function step(key, arg) {
+          try {
+            var info = gen[key](arg);
+            var value = info.value;
+          } catch (error) {
+            reject(error);
+            return;
+          }
+
+          if (info.done) {
+            resolve(value);
+          } else {
+            return Promise.resolve(value).then(function (value) {
+              step("next", value);
+            }, function (err) {
+              step("throw", err);
+            });
+          }
+        }
+
+        return step("next");
+      });
+    };
+  }
+
+  function _classCallCheck(instance, Constructor) {
+    if (!(instance instanceof Constructor)) {
+      throw new TypeError("Cannot call a class as a function");
+    }
+  }
+
+  var _dec, _class;
+
+  var Leaderboard = exports.Leaderboard = (_dec = (0, _aureliaFramework.inject)(_leaderboard.Leaderboard, _quizz.Quizz, _aureliaRouter.Router), _dec(_class = function () {
+    function Leaderboard(leaderboardService, quizz, router) {
+      _classCallCheck(this, Leaderboard);
+
+      this.leaderboardService = leaderboardService;
+      this.quizzService = quizz;
+      this.router = router;
+    }
+
+    Leaderboard.prototype.activate = function () {
+      var _ref = _asyncToGenerator(regeneratorRuntime.mark(function _callee() {
+        return regeneratorRuntime.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.next = 2;
+                return this.leaderboardService.get();
+
+              case 2:
+                this.leaderboard = _context.sent;
+
+              case 3:
+              case 'end':
+                return _context.stop();
+            }
+          }
+        }, _callee, this);
+      }));
+
+      function activate() {
+        return _ref.apply(this, arguments);
+      }
+
+      return activate;
+    }();
+
+    Leaderboard.prototype.reset = function reset() {
+      this.quizzService.current = null;
+    };
+
+    return Leaderboard;
   }()) || _class);
 });
 define('questions/question',['exports', 'aurelia-framework', '../api/quizz', 'aurelia-router'], function (exports, _aureliaFramework, _quizz, _aureliaRouter) {
