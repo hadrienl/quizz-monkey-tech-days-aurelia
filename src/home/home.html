@@ -1,0 +1,28 @@
+<template>
+<require
+  from="./home.css"></require>
+<div
+  class="home-view">
+  <form
+    submit.delegate="submit()"
+    if.bind="!quizzService.current">
+    <p>Choose a userName</p>
+    <input
+      value.bind="userName">
+    <p>
+      and<br>
+      <button
+        class="${error ? 'has-error' : ''}"
+        type="submit">start the quizz!</button>
+    </p>
+  </form>
+  <div
+    if.bind="quizzService.current">
+    Quizz en cours
+    <a
+      href="/questions">Continuer</a>
+    <button
+      click.delegate="cancel()">Arreter</button>
+  </div>
+</div>
+</template>

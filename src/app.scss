@@ -1,0 +1,69 @@
+html,
+body {
+  font-size: 10px;
+  margin: 0;
+  padding: 0;
+  font-family: 'Happy Monkey', sans-serif;
+  height: 100%
+}
+.main-header {
+  height: 6rem;
+  line-height: 6rem;
+  background-color: #f4e6bd;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(244, 230, 189)), to(rgb(135, 167, 117)));
+  background-image: -webkit-linear-gradient(top, rgb(244, 230, 189), rgb(135, 167, 117));
+  background-image: -moz-linear-gradient(top, rgb(244, 230, 189), rgb(135, 167, 117));
+  background-image: -o-linear-gradient(top, rgb(244, 230, 189), rgb(135, 167, 117));
+  background-image: -ms-linear-gradient(top, rgb(244, 230, 189), rgb(135, 167, 117));
+  background-image: linear-gradient(top, rgb(244, 230, 189), rgb(135, 167, 117));
+
+  h1 {
+    margin: 0;
+    padding-left: 2rem;
+  }
+  nav {
+    position: absolute;
+    top: 0;
+    right: 1rem;
+    a {
+      font-size: 2rem;
+      color: white;
+      text-decoration: none;
+    }
+  }
+}
+
+.main-view-ctn {
+  display: table;
+  width: 100%;
+  height: 100%;
+}
+
+router-view {
+  display: table-cell;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  vertical-align: middle;
+}
+
+button {
+  background-color: rgb(136, 171, 122);
+  border: none;
+  border-radius: 1rem;
+  padding: 1rem;
+  box-shadow: 0 1rem 0 rgb(79, 100, 71);
+  transition: transform .1s ease-in, box-shadow .1s ease-in;
+  outline: none;
+  cursor: pointer;
+  &:active {
+    box-shadow: 0 2px 0 rgb(79, 100, 71);
+    transform: translate3d(0, 1rem, 0);
+  }
+  &.has-error {
+    box-shadow: 0 1rem 0 rgb(113, 79, 51);
+    &:active {
+    box-shadow: 0 2px 0 rgb(113, 79, 51);
+    }
+  }
+}

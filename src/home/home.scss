@@ -1,0 +1,8 @@
+.home-view {
+  $fontSize: 4rem;
+  font-size: $fontSize;
+  input,
+  button {
+    font-size: $fontSize;
+  }
+}

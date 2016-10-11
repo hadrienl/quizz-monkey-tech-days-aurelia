@@ -115,6 +115,7 @@
           "aurelia-task-queue",
           "aurelia-templating",
           "aurelia-templating-binding",
+          "aurelia-fetch-client",
           {
             "name": "text",
             "path": "../scripts/text"
@@ -134,6 +135,14 @@
             "path": "../node_modules/aurelia-testing/dist/amd",
             "main": "aurelia-testing",
             "env": "dev"
+          }, {
+            "name": "whatwg-fetch",
+            "path": "../node_modules/whatwg-fetch",
+            "main": "fetch"
+          }, {
+            "name": "regenerator-runtime",
+            "path": "../node_modules/regenerator-runtime",
+            "main": "runtime"
           }
         ]
       }

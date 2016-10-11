@@ -4,6 +4,7 @@ import historyApiFallback from 'connect-history-api-fallback/lib';
 import project from '../aurelia.json';
 import build from './build';
 import {CLIOptions} from 'aurelia-cli';
+import proxy from 'proxy-middleware';
 
 function log(message) {
   console.log(message); //eslint-disable-line no-console
@@ -28,7 +29,13 @@ let serve = gulp.series(
       logLevel: 'silent',
       server: {
         baseDir: ['.'],
-        middleware: [historyApiFallback(), function(req, res, next) {
+        middleware: [proxy({
+          protocol: 'http:',
+          hostname: 'ilaborie.org',
+          port: 9010,
+          pathname: '/api',
+          route: '/api'
+        }), historyApiFallback(), function(req, res, next) {
           res.setHeader('Access-Control-Allow-Origin', '*');
           next();
         }]
