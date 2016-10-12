@@ -154,13 +154,12 @@ define('api/api',['exports', 'regenerator-runtime', 'aurelia-framework', 'aureli
 
   var _dec, _class;
 
-  var Api = exports.Api = (_dec = (0, _aureliaFramework.inject)(_aureliaFetchClient.HttpClient), _dec(_class = function () {
-    function Api(httpClient) {
+  var Api = exports.Api = (_dec = (0, _aureliaFramework.inject)(_aureliaFetchClient.HttpClient, _environment2.default.apiHost), _dec(_class = function () {
+    function Api(httpClient, apiHost) {
       _classCallCheck(this, Api);
 
-      this.host = _environment2.default.apiHost;
-
       this.httpClient = httpClient;
+      this.host = apiHost;
     }
 
     Api.prototype.request = function () {
@@ -168,30 +167,34 @@ define('api/api',['exports', 'regenerator-runtime', 'aurelia-framework', 'aureli
         var method = _ref2.method;
         var path = _ref2.path;
         var body = _ref2.body;
-        var response, json;
+        var params, response, json;
         return regeneratorRuntime.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                _context.next = 2;
-                return this.httpClient.fetch('' + this.host + path, {
+                params = {
                   headers: {
                     'Content-Type': 'application/json'
                   },
-                  method: method,
-                  body: JSON.stringify(body)
-                });
+                  method: method
+                };
 
-              case 2:
+                if (body) {
+                  params.body = JSON.stringify(body);
+                }
+                _context.next = 4;
+                return this.httpClient.fetch('' + this.host + path, params);
+
+              case 4:
                 response = _context.sent;
-                _context.next = 5;
+                _context.next = 7;
                 return response.json();
 
-              case 5:
+              case 7:
                 json = _context.sent;
                 return _context.abrupt('return', json);
 
-              case 7:
+              case 9:
               case 'end':
                 return _context.stop();
             }

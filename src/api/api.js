@@ -3,22 +3,24 @@ import {inject} from 'aurelia-framework';
 import {HttpClient} from 'aurelia-fetch-client';
 import environment from '../environment';
 
-@inject(HttpClient)
+@inject(HttpClient, environment.apiHost)
 export class Api {
-  host = environment.apiHost;
-
-  constructor(httpClient) {
+  constructor(httpClient, apiHost) {
     this.httpClient = httpClient;
+    this.host = apiHost;
   }
 
   async request({ method, path, body }) {
-    const response = await this.httpClient.fetch(`${this.host}${path}`, {
+    const params = {
       headers: {
         'Content-Type': 'application/json'
       },
-      method,
-      body: JSON.stringify(body)
-    });
+      method
+    };
+    if (body) {
+      params.body = JSON.stringify(body);
+    }
+    const response = await this.httpClient.fetch(`${this.host}${path}`, params);
     const json = await response.json();
     return json;
   }

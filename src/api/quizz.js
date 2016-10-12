@@ -82,7 +82,6 @@ export class Quizz {
     });
   }
 
-
   async postAnswers() {
     return this.api.request({
       method: 'post',
